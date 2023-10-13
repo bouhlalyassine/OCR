@@ -7,12 +7,8 @@ import easyocr
 # streamlit run OCR.py
 
 st.set_page_config(page_title=TITLE,
-    page_icon=PAGE_ICON,
     layout="wide")
 
-# --- LOAD CSS, PDF & PROFIL PIC ---
-with open(css_file) as f:
-    st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 st.markdown("<h2 style=\
     'text-align : center';\
@@ -21,18 +17,8 @@ st.markdown("<h2 style=\
     Optical Character Recognition (OCR)</h2>", unsafe_allow_html=True)
 st.markdown("---")
 
+
 with st.sidebar :
-    clickable_img_logo = get_img_with_href(pp_logo_portfolio, 'https://ybouhlal.streamlit.app/', 70, "blank")
-    st.markdown(clickable_img_logo, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    clickable_img = get_img_with_href(linkpic_code, 'https://github.com/bouhlalyassine/OCR',
-        170, "blank")
-    st.markdown(clickable_img, unsafe_allow_html=True)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
     uploaded_file3 = st.file_uploader("📌 Upload Image", key="fup3",type=["jpg", "jpeg", "png"], label_visibility="visible")
 
 if uploaded_file3 :
@@ -79,9 +65,3 @@ else:
         loop=True,
         quality="high", # medium ; high ; low
         height=125)
-
-    esp_1, col_vid_tuto, esp_2 = st.columns([space, tuto_space, space], gap="small")
-    with col_vid_tuto :
-        with open(tuto_ocr, "rb") as tuto_file:
-            tuto_ocr_byte = tuto_file.read()
-        st.video(tuto_ocr_byte)

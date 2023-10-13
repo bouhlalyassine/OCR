@@ -6,21 +6,9 @@ import os
 import base64
 
 TITLE = "OCR"
-PAGE_ICON ="ico_potfolio.ico"
 
 current_dir = Path(__file__).parent if "__file__" in locals() else Path.cwd()
 
-# CSS
-css_file = current_dir / "main.css"
-
-
-# My Tutos :
-# size :
-space = 15
-tuto_space = 70
-
-tuto_ocr_p = current_dir / "files" / "tuto_ocr.mp4"
-tuto_ocr = str(tuto_ocr_p)
 
 # lotties :
 lottie_pdf_text = current_dir / "files" / "abc.json"
